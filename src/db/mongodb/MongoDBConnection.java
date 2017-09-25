@@ -141,5 +141,14 @@ public class MongoDBConnection implements DBConnection {
 								.append("url", item.getUrl()).append("categories", item.getCategories())),
 				options);
 	}
+	
+	@Override
+	public String getFullname(String userId) {
+		return null;
+	}
 
+	@Override
+	public boolean verifyLogin(String userId, String password) {
+		return false;
+	}
 }
