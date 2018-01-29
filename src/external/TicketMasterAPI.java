@@ -27,7 +27,7 @@ public class TicketMasterAPI implements ExternalAPI{
 	 */
 	@Override
 	public List<Item> search(double lat, double lon, String term) {
-//	public JSONArray search(double lat, double lon, String term) {
+	// public JSONArray search(double lat, double lon, String term) {
 		String url = "http://" + API_HOST + SEARCH_PATH;
 		String latlong = lat + "," + lon;
 		if (term == null) {
@@ -56,7 +56,7 @@ public class TicketMasterAPI implements ExternalAPI{
 			JSONObject embedded = (JSONObject) responseJson.get("_embedded");
 			JSONArray events = (JSONArray) embedded.get("events");
 			return getItemList(events);
-//			return events;
+			// return events;
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -73,12 +73,12 @@ public class TicketMasterAPI implements ExternalAPI{
 	}
 
 	private void queryAPI(double lat, double lon) {
-//		JSONArray events = search(lat, lon, null);
-//		try {
-//			for (int i = 0; i < events.length(); i++) {
-//				JSONObject event = events.getJSONObject(i);
-//				System.out.println(event);
-//			}
+		// JSONArray events = search(lat, lon, null);
+		// try {
+		// 	for (int i = 0; i < events.length(); i++) {
+		// 		JSONObject event = events.getJSONObject(i);
+		// 		System.out.println(event);
+		// 	}
 		List<Item> itemList = search(lat, lon, null);
 		  try {
 		   for (Item item : itemList) {
